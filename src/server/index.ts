@@ -1,7 +1,10 @@
+import { PrismaClient } from "@prisma/client";
 import { publicProcedure, router } from "./trpc";
 
 export const appRouter = router({
-  hello: publicProcedure.query(async () => {
+  getHello: publicProcedure.query(async () => {
+    const prisma = new PrismaClient();
+    // await prisma.
     return "Hello world";
   }),
 });
